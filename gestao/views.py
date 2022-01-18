@@ -18,7 +18,7 @@ def inquilinos(request):
         'page_obj' : page_obj
     }
 
-    return render(request, 'inquilinos/inquilinos.html')
+    return render(request, 'inquilinos/inquilinos.html' , context)
 
 
 def add_inquilino(request):
@@ -28,7 +28,7 @@ def add_inquilino(request):
         'inquilinos' : inquilinos,
     }
     if request.method == 'GET':
-        return render(request, 'inquilinos/add_inquilino.html')
+        return render(request, 'inquilinos/add_inquilino.html', context)
 
     if request.method == 'POST':
         nome = request.POST['nome'] 
@@ -59,7 +59,7 @@ def add_inquilino(request):
         if not email:
             messages.error(request, 'Precisa de um email!')
 
-        Inquilinos.objects.create(nome=nome, idadade=idade, sexo=sexo, telefone=telefone, email=email)
+        Inquilinos.objects.create(nome=nome, idade=idade, sexo=sexo, telefone=telefone, email=email)
         messages.success(request, 'Inquilino salvo com Sucesso!')
 
         return redirect('inquilinos')
@@ -92,7 +92,7 @@ def add_unidade(request):
         'unidades' : unidades,
     }
     if request.method == 'GET':
-        return render(request, 'unidades/add_unidade.html')
+        return render(request, 'unidades/add_unidade.html', context)
 
     if request.method == 'POST':
         identicacao = request.POST['identicacao'] 
@@ -102,21 +102,21 @@ def add_unidade(request):
 
         if not identicacao:
             messages.error(request, 'Precisa de uma identicação!')
-            return render(request, 'unidades/add_unidade.html')
+            return render(request, 'unidades/add_unidade.html', context)
         
         if not proprietario:
             messages.error(request, 'Precisa de um Proprietario!')
-            return render(request, 'unidades/add_unidade.html')
+            return render(request, 'unidades/add_unidade.html', context)
         
         
         if not condominio:
             messages.error(request, 'Precisa de um condominio')
-            return render(request, 'unidades/add_unidade.html')
+            return render(request, 'unidades/add_unidade.html', context)
         
         
         if not endereco:
             messages.error(request, 'Precisa de um Endereço')
-            return render(request, 'unidades/add_unidade.html')
+            return render(request, 'unidades/add_unidade.html' , context)
 
         Unidades.objects.create(identicacao=identicacao, proprietario=proprietario, condominio=condominio, endereco=endereco )
         messages.success(request, 'Unidade salva com Sucesso!')
