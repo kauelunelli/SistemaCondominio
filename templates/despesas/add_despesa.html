@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="container mt-4">
+
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'despesas' %}">Despesas</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Nova Despesa</li>
+    </ol>
+  </nav>
+  
+  <div class="card">
+    <div class="card-body">
+    <form action="{% url 'add_despesa' %}" method="post">
+      {% include 'partials/_messages.html' %}
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="">Valor</label>
+        <input type="number" name='valor' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Descrição</label>
+        <input type="text" name='descricao' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Unidade</label>
+        <select class='form-control' name="unidade">
+            {% for unidade in unidades %}
+            <option name='unidade' value="{{unidades.identicacao}}">{{unidades.identicacao}}</option>
+            {% endfor %}
+            <option name='unidade' value="Nenhum">Nenhum</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Tipo Despesa</label>
+        <input type="text" name='tipo_despesa' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Vencimento</label>
+        <input type="date" name='vencimento_fatura' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Status</label>
+        <select class='form-control' name="status_pagamento">
+            <option name='status_pagamento' value="Pago">Pago</option>
+            <option name='status_pagamento' value="Atrasado">Atrasado</option>
+            <option name='status_pagamento' value="Não Pago">Não Pago</option>
+      </div>
+      <input type="submit" value='Submit' class='btn btn-primary btn-primary-sm'>
+    </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
