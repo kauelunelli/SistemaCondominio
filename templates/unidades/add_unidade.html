@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="container mt-4">
+
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'unidades' %}">Inquilinos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Novo Inquilino</li>
+    </ol>
+  </nav>
+  
+  <div class="card">
+    <div class="card-body">
+    <form action="{% url 'add_unidade' %}" method="post">
+      {% include 'partials/_messages.html' %}
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="">Identicação</label>
+        <input type="text" name='identicacao' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Proprietário</label>
+        <input type="text" name='proprietario' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Condomínio</label>
+        <input type="text" name='condominio' class="form-control form-control-sm">
+      </div>
+      <div class="form-group">
+        <label for="">Endereço</label>
+        <input type="text" name='endereco' class="form-control form-control-sm">
+      </div>
+
+      <input type="submit" value='Submit' class='btn btn-primary btn-primary-sm'>
+    </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

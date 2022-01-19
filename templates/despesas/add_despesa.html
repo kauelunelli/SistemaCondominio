@@ -30,7 +30,7 @@
         <label for="">Unidade</label>
         <select class='form-control' name="unidade">
             {% for unidade in unidades %}
-            <option name='unidade' value="{{unidades.identicacao}}">{{unidades.identicacao}}</option>
+            <option name='unidade' value="{{unidade.identicacao}}">{{unidade.identicacao}}</option>
             {% endfor %}
             <option name='unidade' value="Nenhum">Nenhum</option>
         </select>
