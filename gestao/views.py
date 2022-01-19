@@ -180,6 +180,10 @@ def add_despesa(request):
             messages.error(request, 'Precisa de uma Categoria!')
             return render(request, 'despesas/add-despesa', context)
 
+        if not unidade:
+            messages.error(request, 'Precisa de uma Categoria!')
+            return render(request, 'despesas/add-despesa', context)
+
         Despesa.objects.create(valor=valor, descricao=descricao, status_pagamento=status_pagamento, vencimento_fatura=vencimento_fatura,
                                tipo_despesa=tipo_despesa, unidade=unidade )
         messages.success(request, 'Expense saved successfully')
