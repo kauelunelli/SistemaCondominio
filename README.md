@@ -4,7 +4,7 @@
 
 Siga os seguintes passos para instalar o projeto em sua máquina local.
 
-1. Clone o repositório com: ``git clone https://github.com/kauelunelli/DesafioPubFuture``
+1. Clone o repositório com: ``git clone https://github.com/kauelunelli/DesafioApCoders``
 2. Criar um ambiente virtual (python venv): ``python -m venv env``
 3. Entre no ambiente virtual:
     - Para Linux:
