@@ -23,3 +23,8 @@ Siga os seguintes passos para instalar o projeto em sua máquina local.
 ## Como Rodar
 
 Após as migrações terem sido feitas você pode rodar a plataforma. Para rodar o servidor use ``python manage.py runserver``.
+
+
+## Modelagem 
+
+![image](https://user-images.githubusercontent.com/71523699/150699803-23d1ce73-c013-40cd-b028-ed516aed46d0.png)
