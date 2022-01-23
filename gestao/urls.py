@@ -10,7 +10,7 @@ urlpatterns = [
 
     #UNIDADES
 
-    path('unidades' , views.unidades, name='unidades'),
+    path('' , views.unidades, name='unidades'),
     path('add_unidades', views.add_unidade, name='add_unidade'),
     path('deletar_unidade/<int:id>', views.deletar_unidade, name='deletar_unidade'),
 
